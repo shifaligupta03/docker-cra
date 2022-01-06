@@ -1,0 +1,21 @@
+Create a react app:
+npx create-react-app docker-app
+
+Create Docker Image
+docker build -t docker-app -f Dockerfile.dev .
+
+Run docker image: (docker run -p Host machine port:container port docker-app)
+docker run -p 3000:3000 docker-app
+
+To debug inside container
+docker exec -it {containerid} sh
+
+Docker run with volume mount
+docker run port -v local directory path:container directory path
+docker run -p 3000:3000 -v /Users/shifali/Projects/demo/docker-app:/usr/src/app docker-app
+
+To check all images 
+docker images
+
+To create prod image
+docker build -t docker-app-prod -f Dockerfile .
